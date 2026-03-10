@@ -25,7 +25,7 @@ print("Path to dataset files:", path)
 
 46 columns 
 
-# Example Features
+## Example Features
 
 Accident_ID
 
@@ -46,7 +46,7 @@ Temperature
 Visibility
 
 
-## Project Goals
+# Project Goals
 
 The project focuses on the following database concepts:
 
