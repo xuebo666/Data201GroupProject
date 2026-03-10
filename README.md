@@ -23,7 +23,7 @@ print("Path to dataset files:", path)
 
 7728394 accident records
 
-~46 columns (features)
+46 columns 
 
 # Example Features
 
@@ -44,3 +44,20 @@ Weather_Condition
 Temperature
 
 Visibility
+
+
+## Project Goals
+
+The project focuses on the following database concepts:
+
+Designing an Entity Relationship schema
+
+Implementing relational tables in MySQL
+
+Applying database normalization (up to 3NF)
+
+Importing and managing large-scale datasets
+
+Writing SQL queries to analyze accident patterns
+
+Extracting insights from real-world traffic data
