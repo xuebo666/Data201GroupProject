@@ -1,63 +1,119 @@
 # US Accidents Database Project
+
 ## Project Overview
 
-This project builds a relational database system to analyze traffic accidents across the United States using the US Accidents Dataset. The goal is to design a normalized database schema, import large-scale real-world data into MySQL, and perform SQL analysis to extract meaningful insights about accident patterns, weather conditions, and geographic trends.
+This project builds a relational database system to analyze traffic
+accidents across the United States using the **US Accidents Dataset**.
 
-The dataset contains millions of accident records collected from traffic sensors, police reports, and transportation agencies between 2016 and 2023.
+The objective is to design a normalized database schema, import a
+large-scale real-world dataset into **MySQL**, and perform SQL analysis
+to extract meaningful insights about accident patterns, weather
+conditions, and geographic trends.
+
+The dataset contains millions of accident records collected from traffic
+sensors, police reports, and transportation agencies between **2016 and
+2023**.
+
+------------------------------------------------------------------------
 
 # Dataset Information
+
 ## Source
 
-Dataset obtained from Kaggle, published by Sobhan Moosavi.
+The dataset was obtained from Kaggle, published by Sobhan Moosavi.
 
-Download command used in the project:
+The dataset is downloaded automatically using Python and kagglehub:
 
+``` python
 import kagglehub
 
-#Download latest version
+# Download latest version
 path = kagglehub.dataset_download("sobhanmoosavi/us-accidents")
 
 print("Path to dataset files:", path)
+```
 
-## Dataset Size
+Because the dataset is very large, it is **not stored directly in this
+repository**. Instead, it can be downloaded using the script above.
 
-7728394 accident records
+------------------------------------------------------------------------
 
-46 columns 
+# Dataset Size
 
-## Example Features
+The dataset contains:
 
-Accident_ID
+-   **7,728,394 accident records**
+-   **46 attributes (columns)**
 
-Start_Time
+This large dataset provides rich information for database design and
+query analysis.
 
-End_Time
+------------------------------------------------------------------------
 
-City
+# Example Features
 
-State
+Some of the important attributes in the dataset include:
 
-Zipcode
+-   **Accident_ID** -- Unique identifier of the accident
+-   **Start_Time** -- Start time of the accident
+-   **End_Time** -- End time of the accident
+-   **City** -- City where the accident occurred
+-   **State** -- State where the accident occurred
+-   **Zipcode** -- Zip code of the accident location
+-   **Weather_Condition** -- Weather conditions at the time of the
+    accident
+-   **Temperature** -- Temperature in Fahrenheit
+-   **Visibility** -- Visibility distance in miles
 
-Weather_Condition
+These attributes allow analysis of temporal, geographic, and
+environmental factors affecting traffic accidents.
 
-Temperature
-
-Visibility
-
+------------------------------------------------------------------------
 
 # Project Goals
 
-The project focuses on the following database concepts:
+This project focuses on applying key database management concepts,
+including:
 
-Designing an Entity Relationship schema
+-   Designing an **Entity-Relationship (ER) schema**
+-   Implementing **relational tables in MySQL**
+-   Applying **database normalization up to Third Normal Form (3NF)**
+-   Importing and managing **large-scale real-world datasets**
+-   Writing **SQL queries** to analyze accident patterns
+-   Extracting insights about **traffic safety, weather effects, and
+    geographic accident trends**
 
-Implementing relational tables in MySQL
+------------------------------------------------------------------------
 
-Applying database normalization (up to 3NF)
+# Technologies Used
 
-Importing and managing large-scale datasets
+-   Python -- Data preprocessing and dataset handling\
+-   Pandas -- Data cleaning and transformation\
+-   MySQL -- Relational database implementation\
+-   GitHub -- Version control and collaboration
 
-Writing SQL queries to analyze accident patterns
+------------------------------------------------------------------------
 
-Extracting insights from real-world traffic data
+# Database Design
+
+The dataset was normalized into four main tables:
+
+-   **Accidents** -- Core accident records\
+-   **Location** -- Geographic information\
+-   **Weather** -- Weather conditions during accidents\
+-   **Road** -- Nearby road features
+
+This design reduces redundancy and improves query performance.
+
+------------------------------------------------------------------------
+
+# Future Work
+
+Future improvements include:
+
+-   Writing **advanced SQL queries** using joins, aggregations, and
+    window functions\
+-   Creating **data visualizations and dashboards** to illustrate
+    accident trends\
+-   Performing deeper analysis of **weather impacts and geographic
+    accident hotspots**
