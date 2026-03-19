@@ -16,6 +16,7 @@ ORDER BY Total_Accidents DESC
 LIMIT 5;
 
 -- Simple Query 2 - Draw insights comparing accidents at stop signs versus roundabouts
+USE us_accidents_db;
 SELECT
     r.Stop_Sign,
     r.Roundabout,
@@ -24,3 +25,5 @@ FROM accidents a
 JOIN road r ON a.Road_ID = r.Road_ID
 WHERE r.Stop_Sign = TRUE OR r.Roundabout = TRUE
 GROUP BY r.Stop_Sign, r.Roundabout;
+
+-- Advance Query 3 --
