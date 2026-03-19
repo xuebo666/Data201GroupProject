@@ -32,15 +32,21 @@ ORDER BY a.Severity, Avg_Elapsed_Time DESC;
 
 /*What are the 5 longest accident times, for each severity level?*/
 
+WITH accident_times AS (
+    SELECT
+        a.ID, a.Severity, TIMESTAMPDIFF(MINUTE, a.Start_Time, a.End_Time) AS Elapsed_Time
+    FROM accidents a
+    WHERE a.Start_Time IS NOT NULL AND a.End_Time IS NOT NULL AND a.End_Time > a.Start_Time
+)
 SELECT ranked.ID, ranked.Severity, ranked.Elapsed_Time
 FROM (
-	Select a.ID, a.Severity, TIMESTAMPDIFF(MINUTE, a.Start_Time, a.End_Time) AS Elapsed_Time, 
-    DENSE_RANK() OVER (
-		PARTITION BY a.Severity
-        ORDER BY TIMESTAMPDIFF(MINUTE, a.Start_Time, a.End_Time) DESC
+    SELECT
+        ID, Severity, Elapsed_Time,
+        DENSE_RANK() OVER (
+            PARTITION BY Severity
+            ORDER BY Elapsed_Time DESC
         ) AS rnk
-	FROM accidents a 
-    WHERE a.Start_Time IS NOT NULL AND a.End_Time IS NOT NULL AND a.End_Time > a.Start_Time
+    FROM accident_times
 ) AS ranked
 WHERE ranked.rnk <= 5
 ORDER BY ranked.Severity, ranked.Elapsed_Time DESC;
