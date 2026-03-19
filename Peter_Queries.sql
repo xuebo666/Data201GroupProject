@@ -1,3 +1,11 @@
+/*Max airspeed for each severity level*/
+
+SELECT a.Severity, MAX(w.Wind_Speed) AS Max_Wind_Speed
+FROM accidents a
+JOIN weather w ON a.Weather_ID = w.Weather_ID
+WHERE w.Wind_Speed IS NOT NULL
+GROUP BY a.Severity
+ORDER BY a.Severity;
 
 /*Looking at the severity of accidents (4 representing the most impact on traffic), do we see a correlation with the average total time of the accident?*/
 
