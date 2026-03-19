@@ -1,3 +1,5 @@
+-- Vinson Vu
+-- Simple Query 1 - Draw insights from the database about if weather conditions influence total accidents
 USE us_accidents_db;
 SHOW TABLES;
 SELECT COUNT(*) FROM accidents;
@@ -12,3 +14,5 @@ JOIN weather w
 GROUP By w.Weather_Condition
 ORDER BY Total_Accidents DESC
 LIMIT 5;
+
+-- Simple Query 2 - Draw insights
